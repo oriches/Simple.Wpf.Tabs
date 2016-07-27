@@ -112,12 +112,9 @@
     <Compile Include="Extensions\DependencyObjectExtensions.cs" />
     <Compile Include="Extensions\SettingsExtensions.cs" />
     <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="Helpers\ColumnHelper.cs" />
-    <Compile Include="Helpers\DateTimeHelper.cs" />
     <Compile Include="Models\ICloneable.cs" />
     <Compile Include="Models\Setting.cs" />
     <Compile Include="Models\Tab.cs" />
-    <Compile Include="Resources\Behaviors\IsGridScrollingBehavior.cs" />
     <Compile Include="Services\IService.cs" />
     <Compile Include="Services\TabsService.cs" />
     <Compile Include="Services\CultureService.cs" />
@@ -126,7 +123,6 @@
     <Compile Include="Services\ITabsService.cs" />
     <Compile Include="Services\Settings.cs" />
     <Compile Include="Services\SettingsService.cs" />
-    <Compile Include="Resources\Behaviors\RegenerateColumnsBehavior.cs" />
     <Compile Include="Resources\Converters\BooleanInvertConverter.cs" />
     <Compile Include="Extensions\CollectionExtensions.cs" />
     <Compile Include="Extensions\CompositeDisposableExtensions.cs" />
@@ -301,6 +297,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\AttachedProperties\" />
+    <Folder Include="Resources\Behaviors\" />
     <Folder Include="Resources\Controls\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

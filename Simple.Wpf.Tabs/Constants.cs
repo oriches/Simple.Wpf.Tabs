@@ -50,51 +50,6 @@ namespace Simple.Wpf.Tabs
             }
 
             public static readonly TimeSpan MessageDelay = TimeSpan.FromMilliseconds(250);
-
-            public static class Grids
-            {
-                public class SeperatorsFormat
-                {
-                    public bool? Seperators { get; set; }
-
-                    public int? Rounding { get; set; }
-
-                    public string Format { get; set; }
-                }
-
-                public static readonly TimeSpan FilterThrottle = TimeSpan.FromMilliseconds(333);
-                public static readonly TimeSpan ScrollingThrottle = TimeSpan.FromMilliseconds(250);
-                public static readonly TimeSpan UpdatesInfoThrottle = TimeSpan.FromMilliseconds(500);
-                
-                public const string DateFormat = "{0:d}";
-                public const string DateTimeFormat = "{0:G}";
-
-                public static class PredefinedColumns
-                {
-                    public static readonly string Id = "id";
-                    public static readonly string CreatedOn = "created_on";
-                    public static readonly string ModifiedOn = "modified_on";
-                }
-
-                public static readonly string ColumnNameSeperator = "_";
-                public static readonly string ColumnNameDisplaySeperator = " ";
-
-                public static class Transitions
-                {
-                    public static string Default = "TypeId";
-                    public static string NewPositive = "NewPositive";
-                    public static string NewNegative = "NewNegative";
-                }
-            }
-
-            public static class Settings
-            {
-                public static class Names
-                {
-                    public const string Columns = "Columns";
-                    public const string VisibleColumns = "VisibleColumns";
-                }
-            }
         }
     }
 }
