@@ -1,0 +1,16 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:resourceDictionaries="clr-namespace:Simple.Wpf.Tabs.Resources.ResourceDictionaries"
+                    xmlns:converters="clr-namespace:Simple.Wpf.Tabs.Resources.Converters">
+
+    <ResourceDictionary.MergedDictionaries>
+        
+        <resourceDictionaries:SharedResourceDictionary Source="../Brushes/Brushes.xaml" />
+        
+    </ResourceDictionary.MergedDictionaries>
+    
+    <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+
+    <converters:BooleanInvertConverter x:Key="BooleanInvertConverter" />
+
+</ResourceDictionary>
