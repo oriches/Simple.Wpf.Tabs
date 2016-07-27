@@ -29,7 +29,7 @@ namespace Simple.Wpf.Tabs.Tests.ViewModels
         //
         // Why not push behind an interface? - sick of to many interfaces in projects, and hate the idea of just creating it for testing purposes...
         //
-        private static readonly Mutex DurationMutex = new Mutex(false, "Simple.Wpf.Datagrid.Tests.DurationFixtures");
+        private static readonly Mutex DurationMutex = new Mutex(false, "Simple.Wpf.Tabs.Tests.DurationFixtures");
 
         [Test]
         public void does_not_log_duration_when_debug_log_level_is_disabled()
