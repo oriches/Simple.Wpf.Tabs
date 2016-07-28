@@ -85,11 +85,7 @@ With all the WPF MVVM apps I build I make heavy use of DataTemplates from XAML -
 ###Strategy
 Why does it have a strategy? 
 
-
-
-
-
-
+So when they application starts I don't need to know about the actually tab implementations, there is a service (TabService) which has an IEnumerable&lt;ITabStrategy&gt; injected and it will resolve the tab View Models and invoke the creating of the tab via the specific strategy when required. The tab service is responible for invoking the persisting and reviving of the tabs from the application settings.
 
 ```C#
 public interface ITabStrategy : IStrategy
