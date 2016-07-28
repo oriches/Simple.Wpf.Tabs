@@ -69,5 +69,19 @@ public sealed class BlueTabViewModel : TabBaseViewModel, IBlueTabViewModel
 }
 ```
 
+###Template
+With all the WPF MVVM apps I build I make heavy use of DataTemplates from XAML - I avoid implementing user controls because it encourages to much code behind :) If I need some code behind (purely for UI purposes) I use a Blend Behavior.
+
+```XAML
+<DataTemplate DataType="{x:Type t:BlueTabViewModel}">
+
+    <Grid Background="Blue">
+
+    </Grid>
+
+</DataTemplate>
+```
+
+
 
 
