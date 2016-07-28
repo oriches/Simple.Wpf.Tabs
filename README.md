@@ -21,7 +21,7 @@ What is needed to add a new tab to app?
 
 3 things, a View Model for tab contents, a Template (View) for rendering the View Model and Strategy defining how to create the View Model.
 
-As an example I've taken the 'Blue' tab from the app as an exaMPLE, I've also included all the base classes & interfaces:
+As an example I've taken the 'Blue' tab from the app as an example, I've also included all the base classes & interfaces:
 
 ###View Model
 
