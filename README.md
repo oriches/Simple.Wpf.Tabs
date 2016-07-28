@@ -70,7 +70,7 @@ public sealed class BlueTabViewModel : TabBaseViewModel, IBlueTabViewModel
 ```
 
 ###Template
-With all the WPF MVVM apps I build I make heavy use of DataTemplates from XAML - I avoid implementing user controls because it encourages to much code behind :) If I need some code behind (purely for UI purposes) I use a Blend Behavior.
+With all the WPF MVVM apps I build I make heavy use of data templates pattern in XAML - I avoid implementing user controls because it encourages to much code behind :) If I need some code behind (purely for UI purposes) I use a Blend Behavior.
 
 ```XAML
 <DataTemplate DataType="{x:Type t:BlueTabViewModel}">
@@ -85,7 +85,7 @@ With all the WPF MVVM apps I build I make heavy use of DataTemplates from XAML -
 ###Strategy
 Why does it have a strategy? 
 
-So when they application starts I don't need to know about the actually tab implementations, there is a service (TabService) which has an IEnumerable&lt;ITabStrategy&gt; injected and it will resolve the tab View Models and invoke the creating of the tab via the specific strategy when required. The tab service is responible for invoking the persisting and reviving of the tabs from the application settings.
+So when the application starts I don't need to know about the actually tab implementations, there is a service (TabService) which has an IEnumerable&lt;ITabStrategy&gt; injected and it will resolve the tab View Models and invoke the creating of the tab via the specific strategy when required. The tab service is responible for invoking the persistence & restoration of the tabs from the application settings (stored on disk).
 
 ```C#
 public interface ITabStrategy : IStrategy
