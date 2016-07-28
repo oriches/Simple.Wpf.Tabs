@@ -5,6 +5,7 @@ Simple.Wpf.Tabs
 
 As with all my 'important' stuff it builds using the amazing [AppVeyor](https://ci.appveyor.com/project/oriches/simple-wpf-tabs).
 
+The app is skinned using [Mah Apps](http://mahapps.com/).
 
 Okay this is *opinionated software* on the way to build a tabbed UI in an MVC based architect implemented in WPF using MVVM as the flavour of MVC.
 
