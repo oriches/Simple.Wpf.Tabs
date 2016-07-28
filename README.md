@@ -9,7 +9,7 @@ The app is skinned using [Mah Apps](http://mahapps.com/).
 
 Okay this is *opinionated software* on the way to build a tabbed UI in an MVC based architect implemented in WPF using MVVM as the flavour of MVC.
 
-The reason for this existing is not because it doesn't already exist but I've had to look at so many implementations and come to the conclusion most are frankly not fit-for-purpose. They do the job but they make the developers life hell when trying to a new tab or modify how the tabs work. I want to understand how *I would do it* and if I could keep it to the bare minimum of functionality.
+The reason for this existing is not because it doesn't already exist but I've had to look at so many implementations and come to the conclusion most are frankly not fit-for-purpose. They do the job but they make the developers life hell when trying to create a new tab or modify tabs work. I wanted to understand how *I would do it* and if I could keep it to the bare minimum of functionality.
 
 First off, I use modern versions of tooling available to any .Net (WPF) developer - eg rx.net, josn.net, autofac.
 
