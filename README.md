@@ -16,5 +16,58 @@ My experiences of working in the enterprise has taught me that most WPF applicat
 
 rant over :)
 
+What is needed to add a new tab to app?
+
+3 things, a View Model for tab contents, a Template (View) for rendering the View Model and Strategy defining how to create the View Model.
+
+As an example I've taken the 'Blue' tab from the app as an exaMPLE, I've also included all the base classes & interfaces:
+
+###View Model
+
+```C#
+public sealed class Tab
+{
+  public Guid TypeId { get; private set; }
+
+  public string Name { get; private set; }
+
+  public Tab(Guid typeId, string name)
+  {
+    TypeId = typeId;
+    Name = name;
+  }
+}
+
+public interface ITabViewModel : ITransientViewModel
+{
+  Tab Tab { get; }
+
+  string Name { get; }
+}
+
+public interface IBlueTabViewModel : ITabViewModel
+{
+}
+
+public abstract class TabBaseViewModel : BaseViewModel
+{
+  protected TabBaseViewModel(Tab tab)
+  {
+    Tab = tab;
+  }
+
+  public Tab Tab { get; }
+
+  public string Name { get { return Tab.Name; } }
+}
+
+public sealed class BlueTabViewModel : TabBaseViewModel, IBlueTabViewModel
+{
+  public BlueTabViewModel(Tab tab) : base(tab)
+  {
+  }
+}
+```
+
 
 
