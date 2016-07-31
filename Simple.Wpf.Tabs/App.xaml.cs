@@ -48,7 +48,8 @@ namespace Simple.Wpf.Tabs
                 Logger.Info("Starting");
 
                 // ReSharper disable once RedundantToStringCallForValueType
-                var dispatcherMessage = string.Format("Dispatcher managed thread identifier = {0}", Thread.CurrentThread.ManagedThreadId.ToString());
+                var dispatcherMessage =
+                    $"Dispatcher managed thread identifier = {Thread.CurrentThread.ManagedThreadId.ToString()}";
 
                 Logger.Info(dispatcherMessage);
                 Debug.WriteLine(dispatcherMessage);
@@ -137,7 +138,7 @@ namespace Simple.Wpf.Tabs
                 .Listen
                 .SelectMany(x => dianosticsService.Memory.Take(1), (x, y) => y)
                 .SelectMany(x => dianosticsService.Cpu.Take(1), (x, y) => new Tuple<Memory, int>(x, y))
-                .Select(x => string.Format("Heartbeat (Memory={0}, CPU={1}%)", x.Item1.WorkingSetPrivateAsString(), x.Item2.ToString()))
+                .Select(x => $"Heartbeat (Memory={x.Item1.WorkingSetPrivateAsString()}, CPU={x.Item2.ToString()}%)")
                 .ObserveOn(schedulerService.Dispatcher)
                 .ResilentSubscribe(x =>
                 {
@@ -177,7 +178,8 @@ namespace Simple.Wpf.Tabs
 
                               if (delta > Constants.UI.Diagnostics.UiFreeze)
                               {
-                                  var message = string.Format("UI Freeze = {0} ms", delta.TotalMilliseconds.ToString(CultureInfo.InvariantCulture));
+                                  var message =
+                                      $"UI Freeze = {delta.TotalMilliseconds.ToString(CultureInfo.InvariantCulture)} ms";
                                   Debug.WriteLine(message);
                               }
                           };

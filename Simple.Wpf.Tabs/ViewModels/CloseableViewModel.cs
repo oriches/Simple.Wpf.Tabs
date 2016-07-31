@@ -58,20 +58,11 @@ namespace Simple.Wpf.Tabs.ViewModels
         public ReactiveCommand<object> ConfirmCommand { get; protected set; }
         public ReactiveCommand<object> DenyCommand { get; protected set; }
 
-        public IObservable<Unit> Closed
-        {
-            get { return _closed; }
-        }
+        public IObservable<Unit> Closed => _closed;
 
-        public IObservable<Unit> Denied
-        {
-            get { return _denied; }
-        }
+        public IObservable<Unit> Denied => _denied;
 
-        public IObservable<Unit> Confirmed
-        {
-            get { return _confirmed; }
-        }
+        public IObservable<Unit> Confirmed => _confirmed;
 
         protected virtual IObservable<bool> InitialiseCanConfirm()
         {

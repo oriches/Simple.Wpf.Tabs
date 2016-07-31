@@ -35,6 +35,6 @@ namespace Simple.Wpf.Tabs.ViewModels
 
         public IDiagnosticsViewModel Diagnostics { get; }
 
-        public IEnumerable<ITabViewModel> Tabs { get { return _tabs; } }
+        public IEnumerable<ITabViewModel> Tabs => _tabs;
     }
 }

@@ -71,14 +71,14 @@ namespace Simple.Wpf.Tabs.ViewModels
         private static string FormatCpu(int cpu)
         {
             return cpu < 10
-                ? string.Format("CPU: 0{0} %", cpu.ToString(CultureInfo.InvariantCulture))
-                : string.Format("CPU: {0} %", cpu.ToString(CultureInfo.InvariantCulture));
+                ? $"CPU: 0{cpu.ToString(CultureInfo.InvariantCulture)} %"
+                : $"CPU: {cpu.ToString(CultureInfo.InvariantCulture)} %";
         }
 
         private static FormattedMemory FormatMemory(Memory memory)
         {
-            var managedMemory = string.Format("Managed Memory: {0}", memory.ManagedAsString());
-            var totalMemory = string.Format("Total Memory: {0}", memory.WorkingSetPrivateAsString());
+            var managedMemory = $"Managed Memory: {memory.ManagedAsString()}";
+            var totalMemory = $"Total Memory: {memory.WorkingSetPrivateAsString()}";
 
             return new FormattedMemory(managedMemory, totalMemory);
         }

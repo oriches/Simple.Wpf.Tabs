@@ -31,9 +31,6 @@ namespace Simple.Wpf.Tabs.Services
             }
         }
 
-        public IObservable<Unit> Idling
-        {
-            get { return _idleObservable.AsUnit(); }
-        }
+        public IObservable<Unit> Idling => _idleObservable.AsUnit();
     }
 }

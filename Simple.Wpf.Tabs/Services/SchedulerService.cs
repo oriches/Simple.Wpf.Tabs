@@ -13,30 +13,15 @@ namespace Simple.Wpf.Tabs.Services
             _dispatcherScheduler = DispatcherScheduler.Current;
         }
 
-        public IScheduler Dispatcher
-        {
-            get { return _dispatcherScheduler; }
-        }
+        public IScheduler Dispatcher => _dispatcherScheduler;
 
-        public IScheduler Current
-        {
-            get { return CurrentThreadScheduler.Instance; }
-        }
+        public IScheduler Current => CurrentThreadScheduler.Instance;
 
-        public IScheduler TaskPool
-        {
-            get { return TaskPoolScheduler.Default; }
-        }
+        public IScheduler TaskPool => TaskPoolScheduler.Default;
 
-        public IScheduler EventLoop
-        {
-            get { return new EventLoopScheduler(); }
-        }
+        public IScheduler EventLoop => new EventLoopScheduler();
 
-        public IScheduler NewThread
-        {
-            get { return NewThreadScheduler.Default; }
-        }
+        public IScheduler NewThread => NewThreadScheduler.Default;
 
         public IScheduler StaThread
         {

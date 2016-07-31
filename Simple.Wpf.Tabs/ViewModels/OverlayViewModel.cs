@@ -17,7 +17,7 @@ namespace Simple.Wpf.Tabs.ViewModels
 
         public IDisposable Lifetime { get; }
 
-        public bool HasLifetime { get { return Lifetime != null; } }
+        public bool HasLifetime => Lifetime != null;
     }
 
     public sealed class OverlayViewModel : OverlayViewModel<BaseViewModel>

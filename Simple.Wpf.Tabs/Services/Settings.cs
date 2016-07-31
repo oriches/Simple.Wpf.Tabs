@@ -24,9 +24,9 @@
                 _index = -1;
             }
 
-            object IEnumerator.Current { get { return ((IEnumerator<Setting>)this).Current; } }
+            object IEnumerator.Current => ((IEnumerator<Setting>)this).Current;
 
-            Setting IEnumerator<Setting>.Current { get { return _settings[_index]; } }
+            Setting IEnumerator<Setting>.Current => _settings[_index];
 
             public bool MoveNext()
             {

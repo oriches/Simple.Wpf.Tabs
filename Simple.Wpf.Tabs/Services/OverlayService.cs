@@ -24,9 +24,6 @@ namespace Simple.Wpf.Tabs.Services
             _show.OnNext(new OverlayViewModel(header, viewModel, lifetime));
         }
 
-        public IObservable<OverlayViewModel> Show
-        {
-            get { return _show; }
-        }
+        public IObservable<OverlayViewModel> Show => _show;
     }
 }

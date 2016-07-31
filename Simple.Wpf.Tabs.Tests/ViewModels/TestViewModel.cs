@@ -1,7 +1,7 @@
 ﻿namespace Simple.Wpf.Tabs.Tests.ViewModels
 {
     using Tabs.ViewModels;
-
+    
     public sealed class TestViewModel : BaseViewModel
     {
         private string _stringProperty;

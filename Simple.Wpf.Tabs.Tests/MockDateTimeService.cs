@@ -13,9 +13,6 @@ namespace Simple.Wpf.Tabs.Tests
             _testScheduler = testScheduler;
         }
 
-        public DateTimeOffset Now
-        {
-            get { return _testScheduler.Now; }
-        }
+        public DateTimeOffset Now => _testScheduler.Now;
     }
 }

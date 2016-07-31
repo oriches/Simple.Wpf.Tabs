@@ -11,6 +11,6 @@
 
         public Tab Tab { get; }
 
-        public string Name { get { return Tab.Name; } }
+        public string Name => Tab.Name;
     }
 }

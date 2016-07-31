@@ -33,20 +33,11 @@ namespace Simple.Wpf.Tabs.ViewModels
 
         public ReactiveCommand<object> CloseOverlayCommand { get; private set; }
 
-        public bool HasOverlay
-        {
-            get { return _overlay != null; }
-        }
+        public bool HasOverlay => _overlay != null;
 
-        public string OverlayHeader
-        {
-            get { return _overlay != null ? _overlay.Header : string.Empty; }
-        }
+        public string OverlayHeader => _overlay != null ? _overlay.Header : string.Empty;
 
-        public BaseViewModel Overlay
-        {
-            get { return _overlay?.ViewModel; }
-        }
+        public BaseViewModel Overlay => _overlay?.ViewModel;
 
         private void ClearOverlay()
         {

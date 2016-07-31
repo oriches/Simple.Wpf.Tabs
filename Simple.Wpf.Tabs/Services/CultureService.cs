@@ -35,19 +35,13 @@ namespace Simple.Wpf.Tabs.Services
             }
         }
 
-        public static IEnumerable<string> AvailableCultures { get { return Cultures.Keys; } }
+        public static IEnumerable<string> AvailableCultures => Cultures.Keys;
 
-        public static IObservable<string> CultureChanged { get { return Changed; } }
+        public static IObservable<string> CultureChanged => Changed;
 
-        public static string CurrentCulture
-        {
-            get
-            {
-                return CultureChanged
-                    .Take(1)
-                    .Wait();
-            }
-        }
+        public static string CurrentCulture => CultureChanged
+            .Take(1)
+            .Wait();
 
         public static void SetCulture(string cultureName)
         {

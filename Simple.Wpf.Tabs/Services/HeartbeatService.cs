@@ -29,9 +29,6 @@ namespace Simple.Wpf.Tabs.Services
             }
         }
 
-        public IObservable<Unit> Listen
-        {
-            get { return _listen; }
-        }
+        public IObservable<Unit> Listen => _listen;
     }
 }

@@ -66,9 +66,6 @@ namespace Simple.Wpf.Tabs.Services
             }
         }
 
-        public IObservable<Message> Show
-        {
-            get { return _show; }
-        }
+        public IObservable<Message> Show => _show;
     }
 }

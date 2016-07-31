@@ -4,9 +4,6 @@
 
     public sealed class DateTimeService : IDateTimeService
     {
-        public DateTimeOffset Now
-        {
-            get { return DateTimeOffset.Now; }
-        }
+        public DateTimeOffset Now => DateTimeOffset.Now;
     }
 }

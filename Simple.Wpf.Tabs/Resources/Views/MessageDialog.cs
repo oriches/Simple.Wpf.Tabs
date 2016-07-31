@@ -18,9 +18,6 @@ namespace Simple.Wpf.Tabs.Resources.Views
             Content = _message.ViewModel;
         }
 
-        public ICloseableViewModel CloseableContent
-        {
-            get { return _message.ViewModel; }
-        }
+        public ICloseableViewModel CloseableContent => _message.ViewModel;
     }
 }
