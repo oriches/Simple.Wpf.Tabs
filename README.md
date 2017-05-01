@@ -13,7 +13,7 @@ The reason for this existing is not because it doesn't already exist but I've ha
 
 First off, I use modern versions of tooling available to any .Net (WPF) developer - eg rx.net, josn.net, autofac.
 
-My experiences of working in the enterprise has taught me that most WPF applications are bogged down using PRISM & Unity, both in this developer's opinion are shite and poor implementations of a pluggable architecture and an IoC container. PRISM really is the worst kind of software - 'a solution looking for a problem'. If I need a truely dynamic pluggable arhcitecture I probably still wouldn't use PRISM.
+My experiences of working in the enterprise has taught me that most WPF applications are bogged down using PRISM & Unity, both in this developer's opinion are poor implementations of a pluggable architecture and an IoC container. PRISM really is the worst kind of software - 'a solution looking for a problem'. If I need a truely dynamic pluggable arhcitecture I probably still wouldn't use PRISM.
 
 rant over :)
 
