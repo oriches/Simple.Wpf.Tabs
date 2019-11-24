@@ -1,9 +1,9 @@
+using System;
+using Simple.Wpf.Tabs.Models;
+using Simple.Wpf.Tabs.ViewModels;
+
 namespace Simple.Wpf.Tabs.Services
 {
-    using System;
-    using Models;
-    using ViewModels;
-
     public interface IMessageService : IService
     {
         IObservable<Message> Show { get; }

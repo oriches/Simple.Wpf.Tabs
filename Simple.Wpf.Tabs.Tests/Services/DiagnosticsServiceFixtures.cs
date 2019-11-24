@@ -1,16 +1,17 @@
+using System;
+using System.Collections.Generic;
+using System.Reactive;
+using System.Reactive.Subjects;
+using Microsoft.Reactive.Testing;
+using Moq;
+using NUnit.Framework;
+using Simple.Wpf.Tabs.Models;
+using Simple.Wpf.Tabs.Services;
+
 namespace Simple.Wpf.Tabs.Tests.Services
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Reactive;
-    using System.Reactive.Subjects;
-    using Microsoft.Reactive.Testing;
-    using Moq;
-    using NUnit.Framework;
-    using Tabs.Models;
-    using Tabs.Services;
-
-    [TestFixture, Ignore("Inconsistent when running through NCrunch")]
+    [TestFixture]
+    [Ignore("Inconsistent when running through NCrunch")]
     public sealed class DiagnosticsServiceFixtures
     {
         [SetUp]
@@ -75,7 +76,7 @@ namespace Simple.Wpf.Tabs.Tests.Services
             // ASSERT
             Assert.That(called, Is.False);
         }
-        
+
         [Test]
         public void memory_pumps_when_idling()
         {

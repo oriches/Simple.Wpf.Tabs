@@ -1,28 +1,22 @@
 <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:t="clr-namespace:Simple.Wpf.Tabs.ViewModels.Tabs">
-    
+
     <DataTemplate DataType="{x:Type t:BlueTabViewModel}">
 
-        <Grid Background="Blue">
-
-        </Grid>
+        <Grid Background="Blue" />
 
     </DataTemplate>
 
     <DataTemplate DataType="{x:Type t:RedTabViewModel}">
 
-        <Grid Background="Red">
-
-        </Grid>
+        <Grid Background="Red" />
 
     </DataTemplate>
 
     <DataTemplate DataType="{x:Type t:GreenTabViewModel}">
 
-        <Grid Background="Green">
-
-        </Grid>
+        <Grid Background="Green" />
 
     </DataTemplate>
 

@@ -1,11 +1,11 @@
+using System;
+using System.Reactive.Linq;
+using Simple.Wpf.Tabs.Commands;
+using Simple.Wpf.Tabs.Extensions;
+using Simple.Wpf.Tabs.Services;
+
 namespace Simple.Wpf.Tabs.ViewModels
 {
-    using System;
-    using System.Reactive.Linq;
-    using Commands;
-    using Extensions;
-    using Services;
-
     public sealed class ExceptionViewModel : CloseableViewModel, IExceptionViewModel
     {
         private readonly IApplicationService _applicationService;

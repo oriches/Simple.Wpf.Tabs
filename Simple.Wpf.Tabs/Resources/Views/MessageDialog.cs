@@ -1,10 +1,10 @@
+using System.Windows.Markup;
+using MahApps.Metro.Controls.Dialogs;
+using Simple.Wpf.Tabs.Models;
+using Simple.Wpf.Tabs.ViewModels;
+
 namespace Simple.Wpf.Tabs.Resources.Views
 {
-    using System.Windows.Markup;
-    using MahApps.Metro.Controls.Dialogs;
-    using Models;
-    using ViewModels;
-
     [ContentProperty("DialogBody")]
     public sealed class MessageDialog : BaseMetroDialog
     {

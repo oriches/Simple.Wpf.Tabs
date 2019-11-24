@@ -1,8 +1,8 @@
-﻿namespace Simple.Wpf.Tabs.Services
-{
-    using System.Collections.Generic;
-    using Models;
+﻿using System.Collections.Generic;
+using Simple.Wpf.Tabs.Models;
 
+namespace Simple.Wpf.Tabs.Services
+{
     public interface ISettingsService : IService
     {
         ISettings CreateOrUpdate(string name);

@@ -1,7 +1,7 @@
+using System;
+
 namespace Simple.Wpf.Tabs.Models
 {
-    using System;
-
     public sealed class Heartbeat : IEquatable<Heartbeat>
     {
         public Heartbeat(string timestamp)

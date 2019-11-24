@@ -1,30 +1,30 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
 namespace Simple.Wpf.Tabs
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-
     public static class Constants
     {
         public static class StartsWith
         {
             public static class Unit
             {
-                public static IEnumerable<System.Reactive.Unit> Default = new[] { System.Reactive.Unit.Default }
+                public static IEnumerable<System.Reactive.Unit> Default = new[] {System.Reactive.Unit.Default}
                     .ToArray();
 
-                public static IEnumerable<object> DefaultBoxed = new[] { System.Reactive.Unit.Default }
+                public static IEnumerable<object> DefaultBoxed = new[] {System.Reactive.Unit.Default}
                     .Cast<object>()
                     .ToArray();
             }
 
             public static class Boolean
             {
-                public static IEnumerable<bool> False = new[] { false }
+                public static IEnumerable<bool> False = new[] {false}
                     .ToArray();
 
-                public static IEnumerable<bool> True = new[] { true }
-                   .ToArray();
+                public static IEnumerable<bool> True = new[] {true}
+                    .ToArray();
             }
         }
 
@@ -32,6 +32,8 @@ namespace Simple.Wpf.Tabs
         public static class UI
         {
             public const string ExceptionTitle = "whoops - something's gone wrong!";
+
+            public static readonly TimeSpan MessageDelay = TimeSpan.FromMilliseconds(250);
 
             public static class Diagnostics
             {
@@ -48,8 +50,6 @@ namespace Simple.Wpf.Tabs
                 public static readonly TimeSpan DiagnosticsCpuBuffer = TimeSpan.FromMilliseconds(666);
                 public static readonly TimeSpan DiagnosticsSubscriptionDelay = TimeSpan.FromMilliseconds(1000);
             }
-
-            public static readonly TimeSpan MessageDelay = TimeSpan.FromMilliseconds(250);
         }
     }
 }

@@ -1,9 +1,20 @@
+using System;
+
 namespace Simple.Wpf.Tabs.Models
 {
-    using System;
-
     public sealed class Tab : IEquatable<Tab>
     {
+        public Tab(Guid typeId, string name)
+        {
+            TypeId = typeId;
+
+            Name = name;
+        }
+
+        public Guid TypeId { get; }
+
+        public string Name { get; }
+
         public bool Equals(Tab other)
         {
             if (ReferenceEquals(null, other)) return false;
@@ -31,17 +42,6 @@ namespace Simple.Wpf.Tabs.Models
         public static bool operator !=(Tab left, Tab right)
         {
             return !Equals(left, right);
-        }
-
-        public Guid TypeId { get; private set; }
-
-        public string Name { get; private set; }
-
-        public Tab(Guid typeId, string name)
-        {
-            TypeId = typeId;
-
-            Name = name;
         }
     }
 }

@@ -1,12 +1,11 @@
+using Microsoft.Reactive.Testing;
+using Moq;
+using NUnit.Framework;
+using Simple.Wpf.Tabs.Extensions;
+using Simple.Wpf.Tabs.Services;
+
 namespace Simple.Wpf.Tabs.Tests.ViewModels
 {
-    using Microsoft.Reactive.Testing;
-    using Moq;
-    using NUnit.Framework;
-    using Tabs.Services;
-    using ObservableExtensions = Extensions.ObservableExtensions;
-
-
     public abstract class BaseViewModelFixtures
     {
         public MockSchedulerService SchedulerService { get; private set; }
@@ -30,7 +29,7 @@ namespace Simple.Wpf.Tabs.Tests.ViewModels
         public void BaseSetup()
         {
             TestScheduler = new TestScheduler();
-            
+
             SchedulerService = new MockSchedulerService(TestScheduler);
 
             DateTimeService = new MockDateTimeService(TestScheduler);

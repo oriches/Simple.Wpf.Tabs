@@ -1,21 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using NLog;
+using Simple.Wpf.Tabs.Extensions;
+
 namespace Simple.Wpf.Tabs.Helpers
 {
-    using System.Collections.Generic;
-    using System.Linq;
-    using Extensions;
-    using NLog;
-
     public static class LogHelper
     {
         private static readonly IEnumerable<LogLevel> AllLevels = new[]
-                                                                  {
-                                                                      LogLevel.Trace,
-                                                                      LogLevel.Debug,
-                                                                      LogLevel.Info,
-                                                                      LogLevel.Warn,
-                                                                      LogLevel.Error,
-                                                                      LogLevel.Fatal
-                                                                  };
+        {
+            LogLevel.Trace,
+            LogLevel.Debug,
+            LogLevel.Info,
+            LogLevel.Warn,
+            LogLevel.Error,
+            LogLevel.Fatal
+        };
 
         public static void ReconfigureLoggerToLevel(LogLevel level)
         {

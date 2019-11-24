@@ -1,9 +1,9 @@
-﻿namespace Simple.Wpf.Tabs.Strategies.Tabs
-{
-    using System;
-    using Models;
-    using ViewModels.Tabs;
+﻿using System;
+using Simple.Wpf.Tabs.Models;
+using Simple.Wpf.Tabs.ViewModels.Tabs;
 
+namespace Simple.Wpf.Tabs.Strategies.Tabs
+{
     public interface ITabStrategy : IStrategy
     {
         Guid TypeId { get; }

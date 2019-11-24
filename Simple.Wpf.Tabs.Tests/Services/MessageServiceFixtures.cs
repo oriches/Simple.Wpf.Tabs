@@ -1,17 +1,16 @@
+using System;
+using NUnit.Framework;
+using Simple.Wpf.Tabs.Models;
+using Simple.Wpf.Tabs.Services;
+using Simple.Wpf.Tabs.ViewModels;
+
 namespace Simple.Wpf.Tabs.Tests.Services
 {
-    using System;
-    using NUnit.Framework;
-    using Tabs.Models;
-    using Tabs.Services;
-    using Tabs.ViewModels;
-
     [TestFixture]
     public sealed class MessageServiceFixtures : BaseServiceFixtures
     {
         private sealed class TestClosableViewModel : CloseableViewModel
         {
-
         }
 
         [Test]

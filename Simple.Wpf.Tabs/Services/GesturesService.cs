@@ -1,13 +1,13 @@
+using System;
+using System.Reactive.Disposables;
+using System.Windows;
+using System.Windows.Input;
+using System.Windows.Threading;
+using Simple.Wpf.Tabs.Extensions;
+using Simple.Wpf.Tabs.Models;
+
 namespace Simple.Wpf.Tabs.Services
 {
-    using System;
-    using System.Reactive.Disposables;
-    using System.Windows;
-    using System.Windows.Input;
-    using System.Windows.Threading;
-    using Extensions;
-    using Models;
-
     public sealed class GesturesService : DisposableObject, IGestureService
     {
         private readonly DispatcherTimer _timer;
@@ -39,10 +39,7 @@ namespace Simple.Wpf.Tabs.Services
                 _isBusy = busy;
                 Mouse.OverrideCursor = busy ? Cursors.Wait : null;
 
-                if (_isBusy)
-                {
-                    _timer.Start();
-                }
+                if (_isBusy) _timer.Start();
             }
         }
 

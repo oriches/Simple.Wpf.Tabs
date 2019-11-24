@@ -1,12 +1,13 @@
 // ReSharper disable ConvertClosureToMethodGroup
+
+using System;
+using System.Reactive.Disposables;
+using Simple.Wpf.Tabs.Commands;
+using Simple.Wpf.Tabs.Extensions;
+using Simple.Wpf.Tabs.Services;
+
 namespace Simple.Wpf.Tabs.ViewModels
 {
-    using System;
-    using System.Reactive.Disposables;
-    using Commands;
-    using Extensions;
-    using Services;
-
     public sealed class ChromeViewModel : BaseViewModel, IChromeViewModel
     {
         private OverlayViewModel _overlay;
@@ -26,7 +27,7 @@ namespace Simple.Wpf.Tabs.ViewModels
                 .DisposeWith(this);
 
             Disposable.Create(() => CloseOverlayCommand = null)
-               .DisposeWith(this);
+                .DisposeWith(this);
         }
 
         public IMainViewModel Main { get; }
@@ -51,10 +52,7 @@ namespace Simple.Wpf.Tabs.ViewModels
         {
             using (SuspendNotifications())
             {
-                if (_overlay != null)
-                {
-                    ClearOverlay();
-                }
+                if (_overlay != null) ClearOverlay();
 
                 UpdateOverlayImpl(overlay);
             }

@@ -1,15 +1,16 @@
-﻿namespace Simple.Wpf.Tabs.Services
-{
-    using System.Collections.Generic;
-    using System.Linq;
-    using Extensions;
-    using Strategies.Tabs;
-    using ViewModels.Tabs;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Simple.Wpf.Tabs.Dtos;
+using Simple.Wpf.Tabs.Extensions;
+using Simple.Wpf.Tabs.Strategies.Tabs;
+using Simple.Wpf.Tabs.ViewModels.Tabs;
 
+namespace Simple.Wpf.Tabs.Services
+{
     public sealed class TabsService : ITabsService
     {
-        private readonly IEnumerable<ITabStrategy> _tabStrategies;
         private readonly ISettingsService _settingsService;
+        private readonly IEnumerable<ITabStrategy> _tabStrategies;
 
         public TabsService(IEnumerable<ITabStrategy> tabStrategies, ISettingsService settingsService)
         {
@@ -21,8 +22,8 @@
         {
             ISettings settings;
 
-            return _settingsService.TryGet("Tabs", out settings) 
-                ? LoadFromSettings(settings) 
+            return _settingsService.TryGet("Tabs", out settings)
+                ? LoadFromSettings(settings)
                 : CreateAndSaveToSettings();
         }
 
@@ -34,7 +35,7 @@
                 .Select(x => x.Create())
                 .ToArray();
 
-            var dtoTabs = viewModels.Select(x => new Dtos.Tab(x.Tab.TypeId, x.Tab.Name))
+            var dtoTabs = viewModels.Select(x => new Tab(x.Tab.TypeId, x.Tab.Name))
                 .ToArray();
 
             settings["Instances"] = dtoTabs;
@@ -44,7 +45,7 @@
 
         private ITabViewModel[] LoadFromSettings(ISettings settings)
         {
-            var dtos = settings.Get<Dtos.Tab[]>("Instances");
+            var dtos = settings.Get<Tab[]>("Instances");
 
             return dtos.Select(x => new Models.Tab(x.TypeId, x.Name))
                 .SelectMany(x => _tabStrategies.Select(y =>

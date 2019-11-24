@@ -1,7 +1,7 @@
-﻿namespace Simple.Wpf.Tabs.Services
-{
-    using ViewModels.Tabs;
+﻿using Simple.Wpf.Tabs.ViewModels.Tabs;
 
+namespace Simple.Wpf.Tabs.Services
+{
     public interface ITabsService : IService
     {
         ITabViewModel[] GetTabs();

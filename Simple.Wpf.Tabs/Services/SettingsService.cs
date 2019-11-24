@@ -1,48 +1,47 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reactive.Linq;
+using System.Reactive.Subjects;
+using Newtonsoft.Json;
+using Simple.Wpf.Tabs.Extensions;
+using Simple.Wpf.Tabs.Models;
+
 namespace Simple.Wpf.Tabs.Services
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Reactive.Linq;
-    using System.Reactive.Subjects;
-    using Extensions;
-    using Models;
-    using Newtonsoft.Json;
-
     public sealed class SettingsService : DisposableObject, ISettingsService
     {
-        private readonly IDictionary<string, ISettings> _settings;
         private readonly Subject<bool> _persist;
         private readonly object _persistSync = new object();
 
         private readonly JsonSerializerSettings _serializerSettings = new JsonSerializerSettings
         {
-            Formatting =Formatting.Indented,
+            Formatting = Formatting.Indented,
             TypeNameHandling = TypeNameHandling.All
         };
-        
+
+        private readonly IDictionary<string, ISettings> _settings;
+
         public SettingsService(ISchedulerService schedulerService)
         {
             using (Duration.Measure(Logger, "Constructor - " + GetType().Name))
             {
                 _persist = new Subject<bool>()
-                   .DisposeWith(this);
+                    .DisposeWith(this);
 
-                _persist.ObserveOn(schedulerService.TaskPool)                        
-                        .Synchronize(_persistSync)
-                        .Subscribe(_ => Persist())
-                        .DisposeWith(this);
+                _persist.ObserveOn(schedulerService.TaskPool)
+                    .Synchronize(_persistSync)
+                    .Subscribe(_ => Persist())
+                    .DisposeWith(this);
 
                 _settings = new Dictionary<string, ISettings>();
 
                 var serializedSettings = Properties.Settings.Default.GlobalSettings;
 
                 if (!string.IsNullOrEmpty(serializedSettings))
-                {
                     JsonConvert.DeserializeObject<Dictionary<string, IEnumerable<Dtos.Setting>>>(
-                        serializedSettings, _serializerSettings)
+                            serializedSettings, _serializerSettings)
                         .ForEach(y => _settings.Add(y.Key, CreateSettings(y.Value)));
-                }
             }
         }
 
@@ -73,12 +72,12 @@ namespace Simple.Wpf.Tabs.Services
 
             globalSettings.AddRange(_settings.Select(x =>
             {
-                var settings = x.Value.Select(z => new Dtos.Setting { Name = z.Name, Value = z.Value })
+                var settings = x.Value.Select(z => new Dtos.Setting {Name = z.Name, Value = z.Value})
                     .ToArray();
 
                 return new KeyValuePair<string, IEnumerable<Dtos.Setting>>(x.Key, settings);
             }));
-           
+
             var serializedSettings = JsonConvert.SerializeObject(globalSettings, _serializerSettings);
 
             Properties.Settings.Default.GlobalSettings = serializedSettings;

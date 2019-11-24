@@ -1,12 +1,12 @@
+using System;
+using System.Reactive.Disposables;
+using Moq;
+using NUnit.Framework;
+using Simple.Wpf.Tabs.Services;
+using Simple.Wpf.Tabs.ViewModels;
+
 namespace Simple.Wpf.Tabs.Tests.Services
 {
-    using System;
-    using System.Reactive.Disposables;
-    using Moq;
-    using NUnit.Framework;
-    using Tabs.Services;
-    using Tabs.ViewModels;
-
     [TestFixture]
     public sealed class OverlayServiceFixtures
     {

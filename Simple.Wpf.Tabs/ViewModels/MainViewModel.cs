@@ -1,14 +1,15 @@
 // ReSharper disable ConvertClosureToMethodGroup
+
+using System.Collections.Generic;
+using System.Linq;
+using System.Reactive.Disposables;
+using Simple.Wpf.Tabs.Collections;
+using Simple.Wpf.Tabs.Extensions;
+using Simple.Wpf.Tabs.Services;
+using Simple.Wpf.Tabs.ViewModels.Tabs;
+
 namespace Simple.Wpf.Tabs.ViewModels
 {
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Reactive.Disposables;
-    using Collections;
-    using Extensions;
-    using Services;
-    using Tabs;
-
     public sealed class MainViewModel : BaseViewModel, IMainViewModel
     {
         private readonly RangeObservableCollection<ITabViewModel> _tabs;
@@ -23,7 +24,11 @@ namespace Simple.Wpf.Tabs.ViewModels
             Disposable.Create(() => DisposeOfTabs())
                 .DisposeWith(this);
         }
-        
+
+        public IEnumerable<ITabViewModel> Tabs => _tabs;
+
+        public IDiagnosticsViewModel Diagnostics { get; }
+
         private void DisposeOfTabs()
         {
             var copy = _tabs.ToArray();
@@ -32,9 +37,5 @@ namespace Simple.Wpf.Tabs.ViewModels
 
             copy.ForEach(x => x.Dispose());
         }
-
-        public IDiagnosticsViewModel Diagnostics { get; }
-
-        public IEnumerable<ITabViewModel> Tabs => _tabs;
     }
 }

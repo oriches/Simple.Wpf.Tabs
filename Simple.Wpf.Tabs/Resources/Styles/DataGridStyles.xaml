@@ -9,7 +9,7 @@
         <resourceDictionaries:SharedResourceDictionary Source="../Converters/Converters.xaml" />
 
     </ResourceDictionary.MergedDictionaries>
-    
+
     <Style x:Key="DynamicDataGridCellStyle"
            TargetType="{x:Type DataGridCell}">
 
@@ -28,13 +28,13 @@
                             SnapsToDevicePixels="True">
                         <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                           VerticalAlignment="Stretch"
-                                          HorizontalAlignment="Stretch"/>
+                                          HorizontalAlignment="Stretch" />
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
         <Style.Triggers>
-            
+
             <Trigger Property="IsSelected"
                      Value="True">
                 <Setter Property="Background"

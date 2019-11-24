@@ -1,7 +1,7 @@
+using Simple.Wpf.Tabs.Commands;
+
 namespace Simple.Wpf.Tabs.ViewModels
 {
-    using Commands;
-
     public interface IChromeViewModel : IViewModel
     {
         IMainViewModel Main { get; }

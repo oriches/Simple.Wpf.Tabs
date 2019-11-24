@@ -1,9 +1,9 @@
-﻿namespace Simple.Wpf.Tabs.Tests
-{
-    using System.Reactive.Concurrency;
-    using Microsoft.Reactive.Testing;
-    using Tabs.Services;
+﻿using System.Reactive.Concurrency;
+using Microsoft.Reactive.Testing;
+using Simple.Wpf.Tabs.Services;
 
+namespace Simple.Wpf.Tabs.Tests
+{
     public sealed class MockSchedulerService : ISchedulerService
     {
         private readonly TestScheduler _testScheduler;

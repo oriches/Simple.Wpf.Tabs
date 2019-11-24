@@ -1,9 +1,9 @@
+using System;
+using Microsoft.Reactive.Testing;
+using Simple.Wpf.Tabs.Services;
+
 namespace Simple.Wpf.Tabs.Tests
 {
-    using System;
-    using Microsoft.Reactive.Testing;
-    using Tabs.Services;
-
     public sealed class MockDateTimeService : IDateTimeService
     {
         private readonly TestScheduler _testScheduler;

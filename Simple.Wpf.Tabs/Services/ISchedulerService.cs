@@ -1,7 +1,7 @@
+using System.Reactive.Concurrency;
+
 namespace Simple.Wpf.Tabs.Services
 {
-    using System.Reactive.Concurrency;
-
     public interface ISchedulerService : IService
     {
         IScheduler Dispatcher { get; }

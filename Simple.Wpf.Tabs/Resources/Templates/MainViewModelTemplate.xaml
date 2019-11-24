@@ -10,7 +10,7 @@
         <resourceDictionaries:SharedResourceDictionary Source="../Styles/ButtonStyles.xaml" />
         <resourceDictionaries:SharedResourceDictionary Source="../Styles/DataGridStyles.xaml" />
         <resourceDictionaries:SharedResourceDictionary Source="../Styles/TextBlockStyles.xaml" />
-        
+
     </ResourceDictionary.MergedDictionaries>
 
     <DataTemplate DataType="{x:Type vm:MainViewModel}">
@@ -28,7 +28,7 @@
                     Padding="5"
                     BorderThickness="1"
                     BorderBrush="{StaticResource AccentColorBrush}">
-                
+
                 <TabControl ItemsSource="{Binding Tabs}">
                     <TabControl.Resources>
                         <Style BasedOn="{StaticResource MetroTabItem}"
@@ -37,7 +37,7 @@
                                     Value="{Binding Name}" />
                         </Style>
                     </TabControl.Resources>
-                    
+
                 </TabControl>
 
             </Border>

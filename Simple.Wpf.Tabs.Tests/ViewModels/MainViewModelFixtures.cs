@@ -1,39 +1,36 @@
+using System;
+using Moq;
+using NUnit.Framework;
+using Simple.Wpf.Tabs.Models;
+using Simple.Wpf.Tabs.Services;
+using Simple.Wpf.Tabs.ViewModels;
+using Simple.Wpf.Tabs.ViewModels.Tabs;
+
 namespace Simple.Wpf.Tabs.Tests.ViewModels
 {
-    using System;
-    using Models;
-    using Moq;
-    using NUnit.Framework;
-    using Strategies;
-    using Tabs.Services;
-    using Tabs.Strategies.Tabs;
-    using Tabs.ViewModels;
-    using Tabs.ViewModels.Tabs;
-
     [TestFixture]
     public sealed class MainViewModelFixtures : BaseViewModelFixtures
     {
-        private Mock<IDiagnosticsViewModel> _diagnosticsViewModel;
-        private Mock<ITabsService> _tabService;
-
         [SetUp]
         public void SetUp()
         {
             _diagnosticsViewModel = new Mock<IDiagnosticsViewModel>();
 
             _tabService = new Mock<ITabsService>();
-
         }
+
+        private Mock<IDiagnosticsViewModel> _diagnosticsViewModel;
+        private Mock<ITabsService> _tabService;
 
         [Test]
         public void tab_view_modles_populated_when_created()
         {
             // ARRANGE
             var tabViewModels = new ITabViewModel[]
-                             {
-                                 new FooTabViewModel(new Tab(Guid.Empty, "Foo")),
-                                 new BarTabViewModel(new Tab(Guid.Empty, "Bar"))
-                             };
+            {
+                new FooTabViewModel(new Tab(Guid.Empty, "Foo")),
+                new BarTabViewModel(new Tab(Guid.Empty, "Bar"))
+            };
 
             _tabService.Setup(x => x.GetTabs()).Returns(tabViewModels);
 

@@ -4,11 +4,11 @@
                     xmlns:converters="clr-namespace:Simple.Wpf.Tabs.Resources.Converters">
 
     <ResourceDictionary.MergedDictionaries>
-        
+
         <resourceDictionaries:SharedResourceDictionary Source="../Brushes/Brushes.xaml" />
-        
+
     </ResourceDictionary.MergedDictionaries>
-    
+
     <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
 
     <converters:BooleanInvertConverter x:Key="BooleanInvertConverter" />

@@ -1,7 +1,7 @@
+using Simple.Wpf.Tabs.Models;
+
 namespace Simple.Wpf.Tabs.ViewModels.Tabs
 {
-    using Models;
-
     public interface IRedTabViewModel : ITabViewModel
     {
     }

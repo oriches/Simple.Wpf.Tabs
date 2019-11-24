@@ -1,9 +1,9 @@
+using Moq;
+using Simple.Wpf.Tabs.Extensions;
+using Simple.Wpf.Tabs.Services;
+
 namespace Simple.Wpf.Tabs.Tests.Services
 {
-    using Moq;
-    using Tabs.Services;
-    using ObservableExtensions = Extensions.ObservableExtensions;
-
     public abstract class BaseServiceFixtures
     {
         protected BaseServiceFixtures()

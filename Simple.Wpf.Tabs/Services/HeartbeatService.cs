@@ -1,12 +1,12 @@
+using System;
+using System.Reactive;
+using System.Reactive.Linq;
+using System.Reactive.Subjects;
+using Simple.Wpf.Tabs.Extensions;
+using Simple.Wpf.Tabs.Models;
+
 namespace Simple.Wpf.Tabs.Services
 {
-    using System;
-    using System.Reactive;
-    using System.Reactive.Linq;
-    using System.Reactive.Subjects;
-    using Extensions;
-    using Models;
-
     public sealed class HeartbeatService : DisposableObject, IHeartbeatService
     {
         private readonly IConnectableObservable<Unit> _listen;

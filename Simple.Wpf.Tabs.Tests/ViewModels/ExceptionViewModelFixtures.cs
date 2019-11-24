@@ -1,14 +1,14 @@
+using System;
+using Moq;
+using NUnit.Framework;
+using Simple.Wpf.Tabs.Services;
+using Simple.Wpf.Tabs.Tests.Services;
+using Simple.Wpf.Tabs.ViewModels;
+
 namespace Simple.Wpf.Tabs.Tests.ViewModels
 {
-    using System;
-    using Moq;
-    using NUnit.Framework;
-    using Services;
-    using Tabs.Services;
-    using Tabs.ViewModels;
-
     [TestFixture]
-    public sealed class ExceptionViewModelFixtures: BaseServiceFixtures
+    public sealed class ExceptionViewModelFixtures : BaseServiceFixtures
     {
         [SetUp]
         public void Setup()
@@ -17,7 +17,7 @@ namespace Simple.Wpf.Tabs.Tests.ViewModels
         }
 
         private Mock<IApplicationService> _applicationService;
-        
+
         [Test]
         public void can_copy_exception_to_clipboard_when_exception_is_null()
         {

@@ -1,17 +1,13 @@
-﻿namespace Simple.Wpf.Tabs.Strategies.Tabs
-{
-    using System;
-    using Models;
-    using ViewModels.Tabs;
+﻿using System;
+using Simple.Wpf.Tabs.Models;
+using Simple.Wpf.Tabs.ViewModels.Tabs;
 
+namespace Simple.Wpf.Tabs.Strategies.Tabs
+{
     public sealed class GreenTabStrategy : ITabStrategy
     {
-        private readonly Func<Tab, IGreenTabViewModel> _factory;
         public static readonly Tab Default = new Tab(Guid.Parse("{463E43D5-A19A-4F2A-A8E8-48EE79B18A1F}"), "Green");
-
-        public Guid TypeId { get; }
-
-        public string Name { get; }
+        private readonly Func<Tab, IGreenTabViewModel> _factory;
 
         public GreenTabStrategy(Func<Tab, IGreenTabViewModel> factory)
         {
@@ -20,6 +16,10 @@
             TypeId = Default.TypeId;
             Name = Default.Name;
         }
+
+        public Guid TypeId { get; }
+
+        public string Name { get; }
 
         public bool CanHandle(Tab tab, out ITabViewModel tabViewModel)
         {

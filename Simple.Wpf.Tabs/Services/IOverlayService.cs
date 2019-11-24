@@ -1,8 +1,8 @@
+using System;
+using Simple.Wpf.Tabs.ViewModels;
+
 namespace Simple.Wpf.Tabs.Services
 {
-    using System;
-    using ViewModels;
-
     public interface IOverlayService : IService
     {
         IObservable<OverlayViewModel> Show { get; }

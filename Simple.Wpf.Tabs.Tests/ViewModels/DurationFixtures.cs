@@ -1,13 +1,13 @@
+using System;
+using System.Linq;
+using System.Threading;
+using NLog;
+using NUnit.Framework;
+using Simple.Wpf.Tabs.Helpers;
+using Simple.Wpf.Tabs.Services;
+
 namespace Simple.Wpf.Tabs.Tests.ViewModels
 {
-    using System;
-    using System.Linq;
-    using System.Threading;
-    using NLog;
-    using NUnit.Framework;
-    using Tabs.Helpers;
-    using Tabs.Services;
-
     [TestFixture]
     public class DurationFixtures
     {

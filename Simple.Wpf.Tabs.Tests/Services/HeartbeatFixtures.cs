@@ -1,12 +1,12 @@
-﻿namespace Simple.Wpf.Tabs.Tests.Services
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Reactive;
-    using Microsoft.Reactive.Testing;
-    using NUnit.Framework;
-    using Tabs.Services;
+﻿using System;
+using System.Collections.Generic;
+using System.Reactive;
+using Microsoft.Reactive.Testing;
+using NUnit.Framework;
+using Simple.Wpf.Tabs.Services;
 
+namespace Simple.Wpf.Tabs.Tests.Services
+{
     [TestFixture]
     public class HeartbeatFixtures
     {

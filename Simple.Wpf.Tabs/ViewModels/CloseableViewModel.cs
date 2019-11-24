@@ -1,12 +1,12 @@
+using System;
+using System.Reactive;
+using System.Reactive.Linq;
+using System.Reactive.Subjects;
+using Simple.Wpf.Tabs.Commands;
+using Simple.Wpf.Tabs.Extensions;
+
 namespace Simple.Wpf.Tabs.ViewModels
 {
-    using System;
-    using System.Reactive;
-    using System.Reactive.Linq;
-    using System.Reactive.Subjects;
-    using Commands;
-    using Extensions;
-
     public abstract class CloseableViewModel : BaseViewModel, ICloseableViewModel
     {
         private readonly Subject<Unit> _closed;
