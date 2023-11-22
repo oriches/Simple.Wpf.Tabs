@@ -30,9 +30,6 @@ namespace Simple.Wpf.Tabs.Tests.Strategies
             return false;
         }
 
-        public ITabViewModel Create()
-        {
-            return new FooTabViewModel(new Tab(TypeId, Name));
-        }
+        public ITabViewModel Create() => new FooTabViewModel(new Tab(TypeId, Name));
     }
 }

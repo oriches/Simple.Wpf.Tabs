@@ -45,7 +45,8 @@ namespace Simple.Wpf.Tabs.Tests.Services
                 .Subscribe(x => propertyNames.Add(x.PropertyName));
 
             // ACT
-            CultureService.SetCulture(CultureService.AvailableCultures.Skip(1).First());
+            CultureService.SetCulture(CultureService.AvailableCultures.Skip(1)
+                .First());
 
             // ASSERT
             Assert.That(propertyNames.Count, Is.EqualTo(1));

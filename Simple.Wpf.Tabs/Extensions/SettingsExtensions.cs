@@ -13,18 +13,18 @@ namespace Simple.Wpf.Tabs.Extensions
 
             var converter = TypeDescriptor.GetConverter(typeof(T));
 
-            if (converter.CanConvertFrom(value.GetType())) return (T) converter.ConvertFrom(value);
+            if (converter.CanConvertFrom(value.GetType())) return (T)converter.ConvertFrom(value);
 
             try
             {
                 var convertedValue = Convert.ChangeType(value, typeof(T));
-                return (T) convertedValue;
+                return (T)convertedValue;
             }
             catch (Exception)
             {
             }
 
-            return (T) value;
+            return (T)value;
         }
     }
 }

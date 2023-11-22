@@ -10,20 +10,20 @@ namespace Simple.Wpf.Tabs
         {
             public static class Unit
             {
-                public static IEnumerable<System.Reactive.Unit> Default = new[] {System.Reactive.Unit.Default}
+                public static IEnumerable<System.Reactive.Unit> Default = new[] { System.Reactive.Unit.Default }
                     .ToArray();
 
-                public static IEnumerable<object> DefaultBoxed = new[] {System.Reactive.Unit.Default}
+                public static IEnumerable<object> DefaultBoxed = new[] { System.Reactive.Unit.Default }
                     .Cast<object>()
                     .ToArray();
             }
 
             public static class Boolean
             {
-                public static IEnumerable<bool> False = new[] {false}
+                public static IEnumerable<bool> False = new[] { false }
                     .ToArray();
 
-                public static IEnumerable<bool> True = new[] {true}
+                public static IEnumerable<bool> True = new[] { true }
                     .ToArray();
             }
         }

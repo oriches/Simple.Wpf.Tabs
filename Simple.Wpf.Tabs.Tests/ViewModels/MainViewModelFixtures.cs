@@ -32,7 +32,8 @@ namespace Simple.Wpf.Tabs.Tests.ViewModels
                 new BarTabViewModel(new Tab(Guid.Empty, "Bar"))
             };
 
-            _tabService.Setup(x => x.GetTabs()).Returns(tabViewModels);
+            _tabService.Setup(x => x.GetTabs())
+                .Returns(tabViewModels);
 
             // ACT
             var viewModel = new MainViewModel(_diagnosticsViewModel.Object, _tabService.Object);

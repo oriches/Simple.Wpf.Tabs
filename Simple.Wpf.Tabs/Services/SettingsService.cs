@@ -24,7 +24,8 @@ namespace Simple.Wpf.Tabs.Services
 
         public SettingsService(ISchedulerService schedulerService)
         {
-            using (Duration.Measure(Logger, "Constructor - " + GetType().Name))
+            using (Duration.Measure(Logger, "Constructor - " + GetType()
+                       .Name))
             {
                 _persist = new Subject<bool>()
                     .DisposeWith(this);
@@ -45,10 +46,7 @@ namespace Simple.Wpf.Tabs.Services
             }
         }
 
-        public ISettings CreateOrUpdate(string name)
-        {
-            return CreateOrUpdate(name, Enumerable.Empty<Setting>());
-        }
+        public ISettings CreateOrUpdate(string name) => CreateOrUpdate(name, Enumerable.Empty<Setting>());
 
         public ISettings CreateOrUpdate(string name, IEnumerable<Setting> values)
         {
@@ -60,10 +58,7 @@ namespace Simple.Wpf.Tabs.Services
             return settings;
         }
 
-        public bool TryGet(string name, out ISettings settings)
-        {
-            return _settings.TryGetValue(name, out settings);
-        }
+        public bool TryGet(string name, out ISettings settings) => _settings.TryGetValue(name, out settings);
 
         public void Persist()
         {
@@ -72,7 +67,7 @@ namespace Simple.Wpf.Tabs.Services
 
             globalSettings.AddRange(_settings.Select(x =>
             {
-                var settings = x.Value.Select(z => new Dtos.Setting {Name = z.Name, Value = z.Value})
+                var settings = x.Value.Select(z => new Dtos.Setting { Name = z.Name, Value = z.Value })
                     .ToArray();
 
                 return new KeyValuePair<string, IEnumerable<Dtos.Setting>>(x.Key, settings);

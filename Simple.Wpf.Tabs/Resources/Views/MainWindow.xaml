@@ -5,12 +5,13 @@
                 mc:Ignorable="d"
                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                 xmlns:mh="http://metro.mahapps.com/winfx/xaml/controls"
+                xmlns:viewModels="clr-namespace:Simple.Wpf.Tabs.ViewModels"
                 Title="MainWindow"
                 BorderThickness="1"
                 SaveWindowPosition="True"
                 ShowSystemMenuOnRightClick="False"
-                BorderBrush="{StaticResource AccentColorBrush}"
-                d:DataContext="{d:DesignInstance vm:ChromeViewModel}">
+                BorderBrush="{StaticResource MahApps.Brushes.Accent}"
+                d:DataContext="{d:DesignInstance viewModels:ChromeViewModel}">
 
     <mh:MetroWindow.Flyouts>
         <mh:FlyoutsControl>

@@ -19,7 +19,8 @@ namespace Simple.Wpf.Tabs.Models
         protected DisposableObject()
         {
             _disposable = new CompositeDisposable();
-            _disposeMessage = string.Intern("Dispose - " + GetType().Name);
+            _disposeMessage = string.Intern("Dispose - " + GetType()
+                .Name);
         }
 
         protected bool SuppressDebugWriteline { get; set; }
@@ -35,16 +36,11 @@ namespace Simple.Wpf.Tabs.Models
                 }
         }
 
-        protected void DisposeOfAsync(IEnumerable<IDisposable> disposables, IScheduler scheduler)
-        {
+        protected void DisposeOfAsync(IEnumerable<IDisposable> disposables, IScheduler scheduler) =>
             Observable.Return(disposables, scheduler)
                 .Subscribe(x => x.ForEach(y => y.Dispose()))
                 .DisposeWith(this);
-        }
 
-        public static implicit operator CompositeDisposable(DisposableObject disposable)
-        {
-            return disposable._disposable;
-        }
+        public static implicit operator CompositeDisposable(DisposableObject disposable) => disposable._disposable;
     }
 }

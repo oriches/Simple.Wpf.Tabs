@@ -27,11 +27,11 @@
                     Margin="5"
                     Padding="5"
                     BorderThickness="1"
-                    BorderBrush="{StaticResource AccentColorBrush}">
+                    BorderBrush="{StaticResource MahApps.Brushes.Accent}">
 
                 <TabControl ItemsSource="{Binding Tabs}">
                     <TabControl.Resources>
-                        <Style BasedOn="{StaticResource MetroTabItem}"
+                        <Style BasedOn="{StaticResource MahApps.Styles.TabItem}"
                                TargetType="{x:Type TabItem}">
                             <Setter Property="Header"
                                     Value="{Binding Name}" />
@@ -47,7 +47,7 @@
                     Margin="5,0,5,5"
                     Padding="5,0"
                     BorderThickness="1"
-                    BorderBrush="{StaticResource AccentColorBrush}">
+                    BorderBrush="{StaticResource MahApps.Brushes.Accent}">
 
                 <ContentPresenter Content="{Binding Path=Diagnostics}" />
 

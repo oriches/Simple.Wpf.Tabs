@@ -20,9 +20,10 @@ namespace Simple.Wpf.Tabs.Collections
             {
                 var handlers = CollectionChanged;
                 if (handlers != null)
-                    foreach (var handler in handlers.GetInvocationList().Cast<NotifyCollectionChangedEventHandler>())
+                    foreach (var handler in handlers.GetInvocationList()
+                                 .Cast<NotifyCollectionChangedEventHandler>())
                         if (handler.Target is CollectionView)
-                            ((CollectionView) handler.Target).Refresh();
+                            ((CollectionView)handler.Target).Refresh();
                         else
                             handler(this, args);
             }

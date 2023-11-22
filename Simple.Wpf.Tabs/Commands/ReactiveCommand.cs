@@ -17,15 +17,10 @@ namespace Simple.Wpf.Tabs.Commands
         {
         }
 
-        public new static ReactiveCommand<object> Create()
-        {
-            return ReactiveCommand<object>.Create(Observable.Return(true));
-        }
+        public new static ReactiveCommand<object> Create() => ReactiveCommand<object>.Create(Observable.Return(true));
 
-        public new static ReactiveCommand<object> Create(IObservable<bool> canExecute)
-        {
-            return ReactiveCommand<object>.Create(canExecute);
-        }
+        public new static ReactiveCommand<object> Create(IObservable<bool> canExecute) =>
+            ReactiveCommand<object>.Create(canExecute);
     }
 
     public class ReactiveCommand<T> : IObservable<T>, ICommand, IDisposable
@@ -53,15 +48,12 @@ namespace Simple.Wpf.Tabs.Commands
 
         public virtual void Execute(object parameter)
         {
-            var typedParameter = parameter is T ? (T) parameter : default;
+            var typedParameter = parameter is T ? (T)parameter : default;
 
             if (CanExecute(typedParameter)) _execute.OnNext(typedParameter);
         }
 
-        public virtual bool CanExecute(object parameter)
-        {
-            return _currentCanExecute;
-        }
+        public virtual bool CanExecute(object parameter) => _currentCanExecute;
 
         public event EventHandler CanExecuteChanged
         {
@@ -79,7 +71,8 @@ namespace Simple.Wpf.Tabs.Commands
 
         public void Dispose()
         {
-            using (Duration.Measure(Logger, "Dispose - " + GetType().Name))
+            using (Duration.Measure(Logger, "Dispose - " + GetType()
+                       .Name))
             {
                 _eventHandlers.ForEach(x => CommandManager.RequerySuggested -= x);
                 _eventHandlers.Clear();
@@ -91,21 +84,13 @@ namespace Simple.Wpf.Tabs.Commands
             }
         }
 
-        public IDisposable Subscribe(IObserver<T> observer)
-        {
-            return _execute.Subscribe(x => observer.OnNext(x),
+        public IDisposable Subscribe(IObserver<T> observer) =>
+            _execute.Subscribe(x => observer.OnNext(x),
                 e => observer.OnError(e),
                 () => observer.OnCompleted());
-        }
 
-        public static ReactiveCommand<T> Create()
-        {
-            return new ReactiveCommand<T>(Observable.Return(true));
-        }
+        public static ReactiveCommand<T> Create() => new ReactiveCommand<T>(Observable.Return(true));
 
-        public static ReactiveCommand<T> Create(IObservable<bool> canExecute)
-        {
-            return new ReactiveCommand<T>(canExecute);
-        }
+        public static ReactiveCommand<T> Create(IObservable<bool> canExecute) => new ReactiveCommand<T>(canExecute);
     }
 }

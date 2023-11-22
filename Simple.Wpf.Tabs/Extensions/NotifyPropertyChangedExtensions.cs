@@ -18,19 +18,19 @@ namespace Simple.Wpf.Tabs.Extensions
                 .ToArray();
 
             return Observable.Return(new SourceAndNames<TSource>(source, names))
-                .SelectMany(x => x.Source.ObservePropertyChanged().Where(y => x.Names.Contains(y.PropertyName)),
+                .SelectMany(x => x.Source.ObservePropertyChanged()
+                        .Where(y => x.Names.Contains(y.PropertyName)),
                     (x, y) => y);
         }
 
-        public static IObservable<PropertyChangedEventArgs> ObservePropertyChanged(this INotifyPropertyChanged source)
-        {
-            return Observable.Return(source)
+        public static IObservable<PropertyChangedEventArgs>
+            ObservePropertyChanged(this INotifyPropertyChanged source) =>
+            Observable.Return(source)
                 .SelectMany(x => Observable.FromEventPattern<PropertyChangedEventHandler, PropertyChangedEventArgs>(
                         h => x.PropertyChanged += h,
                         h => x.PropertyChanged -= h),
                     (x, y) => y)
                 .Select(x => x.EventArgs);
-        }
 
         private sealed class SourceAndNames<T>
         {

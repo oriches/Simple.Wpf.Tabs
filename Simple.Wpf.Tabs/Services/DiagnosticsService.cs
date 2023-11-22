@@ -22,7 +22,8 @@ namespace Simple.Wpf.Tabs.Services
 
         public DiagnosticsService(IIdleService idleService, ISchedulerService schedulerService)
         {
-            using (Duration.Measure(Logger, "Constructor - " + GetType().Name))
+            using (Duration.Measure(Logger, "Constructor - " + GetType()
+                       .Name))
             {
                 _disposable = new CompositeDisposable()
                     .DisposeWith(this);
@@ -35,7 +36,8 @@ namespace Simple.Wpf.Tabs.Services
                     .ObserveOn(schedulerService.TaskPool)
                     .CombineLatest(
                         idleService.Idling.Buffer(Constants.UI.Diagnostics.DiagnosticsIdleBuffer,
-                            schedulerService.TaskPool).Where(x => x.Any()), (x, y) => x)
+                                schedulerService.TaskPool)
+                            .Where(x => x.Any()), (x, y) => x)
                     .Replay(1);
             }
         }
@@ -125,7 +127,7 @@ namespace Simple.Wpf.Tabs.Services
             try
             {
                 var rawValue = counters.Cpu.NextValue();
-                return (int) rawValue;
+                return (int)rawValue;
             }
             catch (InvalidOperationException exn)
             {
@@ -170,12 +172,12 @@ namespace Simple.Wpf.Tabs.Services
         {
             var currentProcess = Process.GetCurrentProcess();
             foreach (var instance in new PerformanceCounterCategory("Process").GetInstanceNames()
-                .Where(x => x.StartsWith(currentProcess.ProcessName, StringComparison.InvariantCulture)))
+                         .Where(x => x.StartsWith(currentProcess.ProcessName, StringComparison.InvariantCulture)))
                 try
                 {
                     using (var counter = new PerformanceCounter("Process", "ID Process", instance, true))
                     {
-                        var val = (int) counter.RawValue;
+                        var val = (int)counter.RawValue;
                         if (val == currentProcess.Id) return instance;
                     }
                 }
@@ -215,9 +217,8 @@ namespace Simple.Wpf.Tabs.Services
             }
         }
 
-        private static IObservable<Counters> CreatePerformanceCountersAsync()
-        {
-            return Observable.Create<Counters>(x =>
+        private static IObservable<Counters> CreatePerformanceCountersAsync() =>
+            Observable.Create<Counters>(x =>
             {
                 var disposable = new CompositeDisposable();
 
@@ -278,7 +279,6 @@ namespace Simple.Wpf.Tabs.Services
 
                 return disposable;
             });
-        }
 
         internal sealed class Counters
         {

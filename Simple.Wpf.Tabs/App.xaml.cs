@@ -44,7 +44,8 @@ namespace Simple.Wpf.Tabs
 
         protected override void OnStartup(StartupEventArgs args)
         {
-            using (Duration.Measure(Logger, "OnStartup - " + GetType().Name))
+            using (Duration.Measure(Logger, "OnStartup - " + GetType()
+                       .Name))
             {
                 Logger.Info("Starting");
 
@@ -102,10 +103,7 @@ namespace Simple.Wpf.Tabs
             }
         }
 
-        private static string GetRenderCapabilityAsString()
-        {
-            return (RenderCapability.Tier / 0x10000).ToString();
-        }
+        private static string GetRenderCapabilityAsString() => (RenderCapability.Tier / 0x10000).ToString();
 
         private static void HandleExit(object sender, ExitEventArgs e)
         {
@@ -119,16 +117,14 @@ namespace Simple.Wpf.Tabs
             BootStrapper.Stop();
         }
 
-        private static IDisposable ObserveCultureChanges()
-        {
-            return CultureService.CultureChanged
+        private static IDisposable ObserveCultureChanges() =>
+            CultureService.CultureChanged
                 .Subscribe(x =>
                 {
                     Current.Windows
                         .Cast<Window>()
                         .ForEach(y => y.InvalidateVisual());
                 });
-        }
 
         private static IDisposable ObserveHeartbeat(ISchedulerService schedulerService)
         {
@@ -148,9 +144,8 @@ namespace Simple.Wpf.Tabs
         }
 
 
-        private static IObservable<Unit> LoadSettingsAsync(ISchedulerService schedulerService)
-        {
-            return Observable.Create<Unit>(x =>
+        private static IObservable<Unit> LoadSettingsAsync(ISchedulerService schedulerService) =>
+            Observable.Create<Unit>(x =>
                 {
                     BootStrapper.Resolve<ISettingsService>();
 
@@ -160,7 +155,6 @@ namespace Simple.Wpf.Tabs
                     return Disposable.Empty;
                 })
                 .SubscribeOn(schedulerService.TaskPool);
-        }
 
         private static IDisposable ObserveUiFreeze()
         {

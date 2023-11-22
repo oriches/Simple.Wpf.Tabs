@@ -10,13 +10,13 @@ namespace Simple.Wpf.Tabs.Tests.ViewModels
         public string StringProperty
         {
             get => _stringProperty;
-            set { SetPropertyAndNotify(ref _stringProperty, value, () => StringProperty); }
+            set => SetPropertyAndNotify(ref _stringProperty, value, () => StringProperty);
         }
 
         public int IntegerProperty
         {
             get => _integerProperty;
-            set { SetPropertyAndNotify(ref _integerProperty, value, () => IntegerProperty); }
+            set => SetPropertyAndNotify(ref _integerProperty, value, () => IntegerProperty);
         }
     }
 }

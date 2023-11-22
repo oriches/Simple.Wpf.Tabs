@@ -19,14 +19,12 @@ namespace Simple.Wpf.Tabs.ViewModels
 
         private SuspendedNotifications _suspendedNotifications;
 
-        protected BaseViewModel()
-        {
+        protected BaseViewModel() =>
             Observable.Return(this)
                 .SelectMany(x => CultureService.CultureChanged.Skip(1), (x, y) => x)
                 .ActivateGestures()
                 .Subscribe(x => x.OnPropertyChanged())
                 .DisposeWith(this);
-        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -37,15 +35,10 @@ namespace Simple.Wpf.Tabs.ViewModels
             return _suspendedNotifications.AddRef();
         }
 
-        protected virtual void OnPropertyChanged<T>(Expression<Func<T>> expression)
-        {
+        protected virtual void OnPropertyChanged<T>(Expression<Func<T>> expression) =>
             OnPropertyChanged(ExpressionHelper.Name(expression));
-        }
 
-        protected virtual void OnPropertyChanged()
-        {
-            OnPropertyChanged(string.Empty);
-        }
+        protected virtual void OnPropertyChanged() => OnPropertyChanged(string.Empty);
 
         protected virtual void OnPropertyChanged(string propertyName)
         {
@@ -118,10 +111,7 @@ namespace Simple.Wpf.Tabs.ViewModels
                 foreach (var property in _properties) _target.OnPropertyChanged(property);
             }
 
-            public void Add(string propertyName)
-            {
-                _properties.Add(propertyName);
-            }
+            public void Add(string propertyName) => _properties.Add(propertyName);
 
             public IDisposable AddRef()
             {
@@ -137,20 +127,14 @@ namespace Simple.Wpf.Tabs.ViewModels
                 private readonly Action _dispose;
                 private int _refCount;
 
-                public Counter(Action dispose)
-                {
-                    _dispose = dispose;
-                }
+                public Counter(Action dispose) => _dispose = dispose;
 
                 public void Dispose()
                 {
                     if (--_refCount == 0) _dispose();
                 }
 
-                public void Increment()
-                {
-                    ++_refCount;
-                }
+                public void Increment() => ++_refCount;
             }
         }
     }

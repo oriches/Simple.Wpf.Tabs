@@ -28,9 +28,7 @@ namespace Simple.Wpf.Tabs.Extensions
             return array;
         }
 
-        public static ObservableCollection<T> ToObservableCollection<T>(this IEnumerable<T> enumerable)
-        {
-            return new ObservableCollection<T>(enumerable);
-        }
+        public static ObservableCollection<T> ToObservableCollection<T>(this IEnumerable<T> enumerable) =>
+            new ObservableCollection<T>(enumerable);
     }
 }

@@ -36,7 +36,7 @@ namespace Simple.Wpf.Tabs.Extensions
             decimal unitsMulitpler;
             if (UnitsMulitpler.TryGetValue(units, out unitsMulitpler)) return unitsMulitpler;
 
-            unitsMulitpler = 1 / Convert.ToDecimal((int) units);
+            unitsMulitpler = 1 / Convert.ToDecimal((int)units);
 
             UnitsMulitpler.Add(units, unitsMulitpler);
             return unitsMulitpler;
@@ -67,8 +67,9 @@ namespace Simple.Wpf.Tabs.Extensions
             }
 
             var memInfo = MemoryUnitsType.GetMember(unitAsString);
-            var attributes = memInfo[0].GetCustomAttributes(typeof(DescriptionAttribute), false);
-            unitsString = ((DescriptionAttribute) attributes[0]).Description;
+            var attributes = memInfo[0]
+                .GetCustomAttributes(typeof(DescriptionAttribute), false);
+            unitsString = ((DescriptionAttribute)attributes[0]).Description;
 
             UnitsAsString.Add(units, unitsString);
             return unitsString;

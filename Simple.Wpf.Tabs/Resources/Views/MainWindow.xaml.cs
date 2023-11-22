@@ -29,10 +29,7 @@ namespace Simple.Wpf.Tabs.Resources.Views
             Closed += HandleClosed;
         }
 
-        private void HandleClosed(object sender, EventArgs e)
-        {
-            _disposable.Dispose();
-        }
+        private void HandleClosed(object sender, EventArgs e) => _disposable.Dispose();
 
         private IObservable<Unit> ShowDialogAsync(MessageDialog dialog)
         {
@@ -46,7 +43,8 @@ namespace Simple.Wpf.Tabs.Resources.Views
             return this.ShowMetroDialogAsync(dialog, settings)
                 .ToObservable()
                 .SelectMany(x => dialog.CloseableContent.Closed, (x, y) => x)
-                .SelectMany(x => this.HideMetroDialogAsync(dialog).ToObservable(), (x, y) => x)
+                .SelectMany(x => this.HideMetroDialogAsync(dialog)
+                    .ToObservable(), (x, y) => x)
                 .Take(1);
         }
     }

@@ -13,11 +13,11 @@ namespace Simple.Wpf.Tabs.Services
     {
         private static readonly IDictionary<string, CultureInfo> Cultures = new Dictionary<string, CultureInfo>
         {
-            {"English (UK)", new CultureInfo("en-GB")},
-            {"English (USA)", new CultureInfo("en-US")},
-            {"French (FRA)", new CultureInfo("fr-FR")},
-            {"German (DEU)", new CultureInfo("de-DE")},
-            {"Chinese (SGP)", new CultureInfo("zh-SG")}
+            { "English (UK)", new CultureInfo("en-GB") },
+            { "English (USA)", new CultureInfo("en-US") },
+            { "French (FRA)", new CultureInfo("fr-FR") },
+            { "German (DEU)", new CultureInfo("de-DE") },
+            { "Chinese (SGP)", new CultureInfo("zh-SG") }
         };
 
         private static readonly BehaviorSubject<string> Changed;
@@ -28,10 +28,13 @@ namespace Simple.Wpf.Tabs.Services
         {
             using (Duration.Measure(Logger, "Constructor - " + typeof(CultureService).Name))
             {
-                Thread.CurrentThread.CurrentCulture = Cultures.First().Value;
-                Thread.CurrentThread.CurrentUICulture = Cultures.First().Value;
+                Thread.CurrentThread.CurrentCulture = Cultures.First()
+                    .Value;
+                Thread.CurrentThread.CurrentUICulture = Cultures.First()
+                    .Value;
 
-                Changed = new BehaviorSubject<string>(Cultures.First().Key);
+                Changed = new BehaviorSubject<string>(Cultures.First()
+                    .Key);
             }
         }
 

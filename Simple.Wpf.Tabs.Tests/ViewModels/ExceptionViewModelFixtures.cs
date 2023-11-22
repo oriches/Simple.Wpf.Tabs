@@ -11,10 +11,7 @@ namespace Simple.Wpf.Tabs.Tests.ViewModels
     public sealed class ExceptionViewModelFixtures : BaseServiceFixtures
     {
         [SetUp]
-        public void Setup()
-        {
-            _applicationService = new Mock<IApplicationService>();
-        }
+        public void Setup() => _applicationService = new Mock<IApplicationService>();
 
         private Mock<IApplicationService> _applicationService;
 
@@ -51,7 +48,8 @@ namespace Simple.Wpf.Tabs.Tests.ViewModels
         public void can_not_open_log_folder_when_there_is_no_log_folder()
         {
             // ARRANGE
-            _applicationService.SetupGet(x => x.LogFolder).Returns((string) null);
+            _applicationService.SetupGet(x => x.LogFolder)
+                .Returns((string)null);
 
             var viewModel = new ExceptionViewModel(null, _applicationService.Object);
 
@@ -66,7 +64,8 @@ namespace Simple.Wpf.Tabs.Tests.ViewModels
         public void can_open_log_folder_when_there_is_a_log_folder()
         {
             // ARRANGE
-            _applicationService.SetupGet(x => x.LogFolder).Returns(@"c:\temp\log.txt");
+            _applicationService.SetupGet(x => x.LogFolder)
+                .Returns(@"c:\temp\log.txt");
 
             var viewModel = new ExceptionViewModel(null, _applicationService.Object);
 
@@ -154,7 +153,8 @@ namespace Simple.Wpf.Tabs.Tests.ViewModels
         public void opens_log_folder()
         {
             // ARRANGE
-            _applicationService.SetupGet(x => x.LogFolder).Returns(@"c:\temp\log.txt");
+            _applicationService.SetupGet(x => x.LogFolder)
+                .Returns(@"c:\temp\log.txt");
             _applicationService.Setup(x => x.OpenFolder(@"c:\temp\log.txt"));
 
             var viewModel = new ExceptionViewModel(null, _applicationService.Object);

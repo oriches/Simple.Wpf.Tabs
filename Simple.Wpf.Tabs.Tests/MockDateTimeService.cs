@@ -8,10 +8,7 @@ namespace Simple.Wpf.Tabs.Tests
     {
         private readonly TestScheduler _testScheduler;
 
-        public MockDateTimeService(TestScheduler testScheduler)
-        {
-            _testScheduler = testScheduler;
-        }
+        public MockDateTimeService(TestScheduler testScheduler) => _testScheduler = testScheduler;
 
         public DateTimeOffset Now => _testScheduler.Now;
     }

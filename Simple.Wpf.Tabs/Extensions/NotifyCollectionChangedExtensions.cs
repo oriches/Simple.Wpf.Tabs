@@ -7,9 +7,8 @@ namespace Simple.Wpf.Tabs.Extensions
     public static class NotifyCollectionChangedExtensions
     {
         public static IObservable<NotifyCollectionChangedEventArgs> ObserveCollectionChanged(
-            this INotifyCollectionChanged source)
-        {
-            return Observable.Return(source)
+            this INotifyCollectionChanged source) =>
+            Observable.Return(source)
                 .SelectMany(x =>
                         Observable
                             .FromEventPattern<NotifyCollectionChangedEventHandler, NotifyCollectionChangedEventArgs>(
@@ -17,6 +16,5 @@ namespace Simple.Wpf.Tabs.Extensions
                                 h => x.CollectionChanged -= h),
                     (x, y) => y)
                 .Select(x => x.EventArgs);
-        }
     }
 }

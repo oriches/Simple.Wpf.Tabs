@@ -42,15 +42,9 @@ namespace Simple.Wpf.Tabs.Services
             }
         }
 
-        IEnumerator<Setting> IEnumerable<Setting>.GetEnumerator()
-        {
-            return new SettingsEnumerator(_settings);
-        }
+        IEnumerator<Setting> IEnumerable<Setting>.GetEnumerator() => new SettingsEnumerator(_settings);
 
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return new SettingsEnumerator(_settings);
-        }
+        IEnumerator IEnumerable.GetEnumerator() => new SettingsEnumerator(_settings);
 
         private Setting FindFirst(string name)
         {
@@ -76,12 +70,9 @@ namespace Simple.Wpf.Tabs.Services
                 Reset();
             }
 
-            public void Reset()
-            {
-                _index = -1;
-            }
+            public void Reset() => _index = -1;
 
-            object IEnumerator.Current => ((IEnumerator<Setting>) this).Current;
+            object IEnumerator.Current => ((IEnumerator<Setting>)this).Current;
 
             Setting IEnumerator<Setting>.Current => _settings[_index];
 

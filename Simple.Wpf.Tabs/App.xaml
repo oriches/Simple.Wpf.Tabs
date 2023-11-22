@@ -12,11 +12,7 @@
                 <resourceDictionaries:SharedResourceDictionary
                     Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
                 <resourceDictionaries:SharedResourceDictionary
-                    Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
-                <resourceDictionaries:SharedResourceDictionary
-                    Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/steel.xaml" />
-                <resourceDictionaries:SharedResourceDictionary
-                    Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/baselight.xaml" />
+                    Source="pack://application:,,,/MahApps.Metro;component/styles/themes/light.steel.xaml" />
 
                 <resourceDictionaries:SharedResourceDictionary Source="Resources/Colors/Colors.xaml" />
 

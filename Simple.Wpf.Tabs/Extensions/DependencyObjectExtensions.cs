@@ -43,11 +43,11 @@ namespace Simple.Wpf.Tabs.Extensions
                 {
                     var frameworkElement = current as FrameworkElement;
                     if (current is T && frameworkElement != null && frameworkElement.Name == parentName)
-                        return (T) current;
+                        return (T)current;
                 }
                 else if (current is T)
                 {
-                    return (T) current;
+                    return (T)current;
                 }
 
                 current = VisualTreeHelper.GetParent(current);
@@ -80,7 +80,7 @@ namespace Simple.Wpf.Tabs.Extensions
                     var frameworkElement = child as FrameworkElement;
                     if (frameworkElement != null && frameworkElement.Name == childName)
                     {
-                        foundChild = (T) child;
+                        foundChild = (T)child;
                         break;
                     }
 
@@ -90,7 +90,7 @@ namespace Simple.Wpf.Tabs.Extensions
                 }
                 else
                 {
-                    foundChild = (T) child;
+                    foundChild = (T)child;
                     break;
                 }
             }
@@ -116,7 +116,7 @@ namespace Simple.Wpf.Tabs.Extensions
                 }
                 else
                 {
-                    foundChild = (T) child;
+                    foundChild = (T)child;
                     break;
                 }
             }

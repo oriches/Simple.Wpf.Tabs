@@ -26,22 +26,13 @@ namespace Simple.Wpf.Tabs.Models
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj is Tab && Equals((Tab) obj);
+            return obj is Tab && Equals((Tab)obj);
         }
 
-        public override int GetHashCode()
-        {
-            return TypeId.GetHashCode();
-        }
+        public override int GetHashCode() => TypeId.GetHashCode();
 
-        public static bool operator ==(Tab left, Tab right)
-        {
-            return Equals(left, right);
-        }
+        public static bool operator ==(Tab left, Tab right) => Equals(left, right);
 
-        public static bool operator !=(Tab left, Tab right)
-        {
-            return !Equals(left, right);
-        }
+        public static bool operator !=(Tab left, Tab right) => !Equals(left, right);
     }
 }

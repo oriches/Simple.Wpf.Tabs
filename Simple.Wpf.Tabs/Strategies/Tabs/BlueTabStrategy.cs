@@ -33,9 +33,6 @@ namespace Simple.Wpf.Tabs.Strategies.Tabs
             return false;
         }
 
-        public ITabViewModel Create()
-        {
-            return new BlueTabViewModel(new Tab(TypeId, Name));
-        }
+        public ITabViewModel Create() => new BlueTabViewModel(new Tab(TypeId, Name));
     }
 }
